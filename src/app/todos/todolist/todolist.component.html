@@ -1,0 +1,16 @@
+<div class="app-container" id="taskList">
+    <h1 class="app-header">TO DO LIST</h1>
+    <div class="add-task">
+      <input type="text" autocomplete="off" placeholder="Add New Task"  class="task-input" #todoinput>
+          <input type="submit" value="" (click)="Addtodo(todoinput.value); todoinput.value=''" class="submit-task" title="Add Task">
+    </div>
+    <ul class="task-list">
+          <li class="task-list-item" *ngFor="let i of todolist">
+            <label class="task-list-item-label">
+                <input type="checkbox" [checked]="i.completed">
+                <span>{{i.title}}</span>
+            </label>
+            <span (click)="delete(i.id)" class="delete-btn" title="Delete Task"></span>
+          </li>
+      </ul>
+  </div>
